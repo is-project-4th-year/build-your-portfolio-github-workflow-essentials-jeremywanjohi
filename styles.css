@@ -48,4 +48,9 @@ footer { text-align:center; font-size:.875rem; color:#777; margin-top:2rem; }
     transform:scaleY(0);transform-origin:top;transition:transform .2s;
   }
   #nav-menu.open{transform:scaleY(1);}
+
 }
+/* ===== About section (#5) ===== */
+.about { margin: 3rem 0; }
+.about h2 { font-size: 1.75rem; margin-bottom: .75rem; color: #0a66c2; }
+.about p  { font-size: 1rem;  color: #444; max-width: 60ch; }
