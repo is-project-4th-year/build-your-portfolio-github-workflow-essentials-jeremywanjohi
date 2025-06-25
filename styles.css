@@ -90,3 +90,12 @@ footer { text-align:center; font-size:.875rem; color:#777; margin-top:2rem; }
   .hero h1 { font-size: 2rem; }
   .hero p  { font-size: 1.1rem; }
 }
+/* ===== Toast (#9) ===== */
+#toast{
+  position:fixed; bottom:1.5rem; right:1.5rem;
+  background:#0a66c2; color:#fff; padding:.75rem 1.25rem;
+  border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,.15);
+  opacity:0; transform:translateY(20px); pointer-events:none;
+  transition:opacity .3s, transform .3s;
+}
+#toast.show{opacity:1; transform:translateY(0);}
