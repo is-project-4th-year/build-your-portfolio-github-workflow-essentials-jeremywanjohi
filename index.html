@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeremy Wanjohi • Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header class="nav">
@@ -20,6 +20,9 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+  <!-- Toast container (#9) -->
+    <div id="toast" role="status" aria-live="polite"></div>
+
 
   <!-- HERO (#2) -->
   <section id="home" class="hero">
@@ -65,8 +68,61 @@
     </article>
   </div>
 </section>
+    <!-- CONTACT (#8) -->
+<section id="contact" class="contact">
+  <h2>Get in touch</h2>
 
-  <section id="contact"  class="placeholder"><h2>Contact</h2></section>
+  <form id="contact-form">
+    <label>
+      Name
+      <input type="text" name="user_name" required />
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="user_email" required />
+    </label>
+
+    <label>
+      Message
+      <textarea name="message" rows="4" required></textarea>
+    </label>
+
+    <button type="submit" class="cta">Send Message</button>
+  </form>
+</section>
+<script>
+  /* showToast used by EmailJS handler too */
+  function showToast(msg){
+    const t=document.getElementById("toast");
+    t.textContent=msg; t.classList.add("show");
+    setTimeout(()=>t.classList.remove("show"),3000);
+  }
+
+  /* extra HTML5 validation feedback */
+  document.getElementById("contact-form")
+    .addEventListener("invalid", e=>{
+      e.preventDefault();
+      showToast("Please fill all fields correctly 🙏");
+    }, true);
+</script>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("YOUR_PUBLIC_KEY");   // 🔑  replace with your EmailJS public key
+
+  document.getElementById("contact-form")
+    .addEventListener("submit", function(e) {
+      e.preventDefault();
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+        .then(() => showToast("Message sent!"),   // showToast in #9
+              () => showToast("Oops, try again 🙁"));
+      this.reset();
+    });
+</script>
+
+
   <script>
   const btn=document.getElementById('nav-toggle');
   const menu=document.getElementById('nav-menu');
