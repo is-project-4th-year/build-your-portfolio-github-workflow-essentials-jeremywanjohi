@@ -13,13 +13,40 @@
 
 ## 3. Learnings from the Git Crash Program
 
-List at least **four key concepts or skills** you learned during the Git crash course. For each one, write a brief explanation of how it helped you manage your portfolio project more effectively.
+### 1. **Pull Requests**
+- **Expectation 👀**  
+  PRs are for big teams; I’d just push straight to `main`.
+- **Reality 😅**  
+  A quick self-review in a PR catches silly mistakes . GitHub even flags conflicts for me.
+- **Impact 💻**  
+  Every feature now goes through a PR. Spotted a footer typo and fixed it *before* it went live.
 
 
-- **Pull Requests**: The importance of reviewing your own code or someone elses before pushing to the main branch and being able to resolve conflicts.
-- **Branching**: The importance of each issue having a separate branch making the project process much more efficient especially in a team.
-- **Commit Messaging**: Learnt the different types of commit messaging and applied them in my own portfolio which made each task clearer.
-- **Project Management**: I learnt how to manage different dasks and view their status on the Kanban board.
+### 2. **Branching**
+- **Expectation 👀**  
+  Why just not use one branch?
+- **Reality 😅**  
+  Putting each Issue on its own branch keeps `main` clean. If an idea fails, I delete the branch with no consequences.
+- **Impact 💻**  
+  Used branches like `feature/7-contact-form`; testing new features before pushing to main.
+
+
+### 3. **Commit Messaging**
+- **Expectation 👀**  
+  “Fix stuff” was good enough; I’d remember what I meant.
+- **Reality 😅**  
+  Conventional tags (`feat`, `style`, `docs`) ensure every commit has a clear description for future reference .
+- **Impact 💻**  
+  When writing my course summary, the commit history already told the story , i didn't need to guess.
+
+
+### 4. **Project Management / Kanban**
+- **Expectation 👀**  
+  The board looked nice but not necessary.
+- **Reality 😅**  
+  Dragging cards from **To Do** → **Done** shows gaps I’d otherwise miss.
+- **Impact 💻**  
+  “About Me polish” was still in **To Do** ,the board reminded me before the set deadline.
 
 
 ## 4. Screenshots of Key GitHub Features
