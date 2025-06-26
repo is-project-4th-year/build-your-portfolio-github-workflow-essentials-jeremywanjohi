@@ -1,114 +1,186 @@
-html { scroll-behavior: smooth; }
-/* ===== Base ===== */
-* { box-sizing:border-box; margin:0; padding:0; }
-body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color:#222; background:#fafafa;
-  max-width:960px; margin:auto; padding:0 1.5rem 3rem;
+/* ------------------------------------------------------------------
+   0.  RESET & TOKENS
+------------------------------------------------------------------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-family:'Inter',system-ui,sans-serif}
+:root{
+  /* palette */
+  --brand      : #e62128;
+  --brand-dark : #b00020;
+  --white      : #fff;
+  --black      : #000;
+  --bg         : #f6f6f6;
+
+  /* surfaces */
+  --radius     : 2rem;
+  --shadow-sm  : 0 4px 12px rgba(0,0,0,.06);
+  --shadow-lg  : 0 12px 28px rgba(0,0,0,.10);
+
+  /* gradient for fancy bits */
+  --neon       : linear-gradient(45deg,#ff004c,#7000ff,#00c5ff,#ffae00,#ff004c);
 }
 
-/* ===== Hero (#2) ===== */
-.hero { text-align:center; margin:4rem 0 3rem; }
-.hero h1 { font-size:2.5rem; margin-bottom:.5rem; color:#0a66c2; }
-.hero p  { font-size:1.25rem; color:#555;  margin-bottom:1.5rem; }
-.cta {
-  display:inline-block; background:#0a66c2; color:#fff;
-  padding:.75rem 1.5rem; border-radius:.375rem; text-decoration:none;
+/* ------------------------------------------------------------------
+   1.  LAYOUT WRAPPERS
+------------------------------------------------------------------- */
+.section-card{
+  width:100%;
+  margin:0 0 5rem;
+  padding:clamp(2.5rem,6vw,4rem) clamp(4vw,8vw,7vw);
+  background:var(--white);
+  border-radius:0 0 var(--radius) var(--radius);
+  box-shadow:var(--shadow-lg);
 }
-.cta:hover { background:#084a94; }
+.full{width:100%}                            /* hero edge-to-edge */
 
-/* placeholders */
-.placeholder { margin-bottom:4rem; }
-.placeholder h2 { font-size:1.5rem; color:#0a66c2; }
+/* ------------------------------------------------------------------
+   2.  TYPOGRAPHY UTILITIES
+------------------------------------------------------------------- */
+h2{font-size:2rem;text-align:center;margin-bottom:2rem;color:var(--brand)}
+h2::after{content:'';display:block;width:64px;height:4px;margin:.6rem auto 0;
+          background:var(--brand);border-radius:2px}
+.text-brand{color:var(--brand)}
 
-/* footer */
-footer { text-align:center; font-size:.875rem; color:#777; margin-top:2rem; }
+/* ------------------------------------------------------------------
+   3.  BUTTONS
+------------------------------------------------------------------- */
+.btn{
+  display:inline-block;padding:1rem 2.2rem;border:none;
+  border-radius:var(--radius);font-weight:600;text-decoration:none;
+  color:var(--white);background:var(--brand);
+  transition:transform .25s,box-shadow .25s,background .25s;
+}
+.btn:hover{transform:translateY(-3px);background:var(--black);
+           box-shadow:var(--shadow-lg)}
+/*  optional neon wave  */
+.btn--wave{background:var(--neon);background-size:400% 400%;
+           animation:wave 6s ease infinite}
+@keyframes wave{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 
-/* ===== Nav bar (#3) ===== */
+/* ------------------------------------------------------------------
+   4.  NAVIGATION
+------------------------------------------------------------------- */
 .nav{
-  display:flex;align-items:center;justify-content:space-between;padding:1rem 0;
+  position:sticky;top:0;z-index:100;width:100%;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1rem 4vw;background:var(--white);box-shadow:var(--shadow-sm);
+  border-radius:0 0 calc(var(--radius) - .5rem) calc(var(--radius) - .5rem);
 }
-.logo{font-weight:700;font-size:1.25rem;text-decoration:none;color:#0a66c2;}
-.logo span{color:#ffa600;}
-#nav-toggle{
-  background:none;border:none;font-size:1.5rem;cursor:pointer;display:none;
-}
-#nav-menu{display:flex;gap:1.5rem;}
-#nav-menu a{text-decoration:none;color:#333;font-weight:500;}
-#nav-menu a:hover{color:#0a66c2;}
+.logo{font-size:1.35rem;font-weight:700;color:var(--black)}
+.logo span{color:var(--brand)}
+#nav-toggle{display:none;font-size:1.7rem;color:var(--brand);background:none;border:none}
+#nav-menu{display:flex;gap:2rem}
+#nav-menu a{font-weight:500;color:var(--black);text-decoration:none;position:relative}
+#nav-menu a::after{
+  content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;
+  background:var(--brand);transition:.3s;border-radius:1px}
+#nav-menu a:hover::after{width:100%}
 
-/* mobile tweaks */
-@media(max-width:640px){
-  #nav-toggle{display:block;}
+/* mobile drawer */
+@media(max-width:768px){
+  #nav-toggle{display:block}
   #nav-menu{
-    position:absolute;top:64px;right:0;background:#fff;
-    flex-direction:column;width:200px;padding:1rem;gap:1rem;
-    box-shadow:0 4px 16px rgba(0,0,0,.05);
-    transform:scaleY(0);transform-origin:top;transition:transform .2s;
-  }
-  #nav-menu.open{transform:scaleY(1);}
-
-}
-/* ===== About section (#5) ===== */
-.about { margin: 3rem 0; }
-.about h2 { font-size: 1.75rem; margin-bottom: .75rem; color: #0a66c2; }
-.about p  { font-size: 1rem;  color: #444; max-width: 60ch; }
-
-/* ===== Projects grid (#6) ===== */
-.projects { margin: 3rem 0; }
-.projects h2 { font-size: 1.75rem; margin-bottom: 1rem; color: #0a66c2; }
-
-.card-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-.card {
-  background: #fff;
-  padding: 1.25rem 1.5rem;
-  border-radius: .5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,.05);
-}
-.card h3 { margin-bottom: .5rem; color:#0a66c2; font-size:1.25rem; }
-.card p  { color:#555; font-size:.95rem; line-height:1.45; }
-
-/* ===== Responsive polish (#7) ===== */
-@media (min-width: 992px) {
-  /* Make About a two-column layout on wide screens */
-  .about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    column-gap: 2rem;
-  }
-  .about p { max-width: none; }
+    position:fixed;inset:0 auto 0 40%;flex-direction:column;gap:2rem;
+    padding:5rem 2rem;background:var(--white);
+    transform:translateX(100%);transition:transform .3s}
+  #nav-menu.open{transform:translateX(0)}
 }
 
-@media (max-width: 480px) {
-  /* Slightly shrink hero headline on small phones */
-  .hero h1 { font-size: 2rem; }
-  .hero p  { font-size: 1.1rem; }
-}
-/* ===== Toast (#9) ===== */
+/* ------------------------------------------------------------------
+   5.  HERO
+------------------------------------------------------------------- */
+.hero{
+  height:88vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;background:url('assets/hero.jpg') center/cover;
+  color:var(--white);position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:var(--black);opacity:.65}
+.hero__inner{position:relative;z-index:1;max-width:640px;padding:0 1rem}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-bottom:1rem;font-weight:700}
+.hero p{font-size:1.25rem;margin-bottom:2.2rem;color:#eaeaea}
+
+/* ------------------------------------------------------------------
+   6.  PROJECT CARDS + HALO
+------------------------------------------------------------------- */
+.card-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{
+  position:relative;padding:2rem 1.5rem;border-radius:calc(var(--radius) - .5rem);
+  background:var(--bg);box-shadow:var(--shadow-sm);overflow:hidden;
+  transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.card h3{color:var(--brand);margin-bottom:1rem;font-size:1.3rem}
+.card p{line-height:1.55}
+.card::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  border-radius:calc(var(--radius) - .5rem);background:var(--white);
+  box-shadow:var(--shadow-lg);transition:opacity .3s}
+.card:hover::before{opacity:.9}
+
+/* ------------------------------------------------------------------
+   7.  CONTACT + SOCIAL
+------------------------------------------------------------------- */
+#contact-form{display:grid;gap:1rem;max-width:520px;margin-inline:auto}
+#contact-form input,#contact-form textarea{
+  width:100%;padding:1rem;border:2px solid var(--black);
+  border-radius:1.2rem;background:var(--white);font-size:1rem}
+.socials{margin-top:2.5rem;display:flex;justify-content:center;gap:1.2rem}
+.socials a{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;
+           border:2px solid var(--brand);color:var(--brand);transition:.3s}
+.socials a:hover{background:var(--brand);color:var(--white);transform:scale(1.1)}
+
+/* ------------------------------------------------------------------
+   8.  FOOTER & TOAST
+------------------------------------------------------------------- */
+footer{text-align:center;padding:3rem 4vw;color:#555}
 #toast{
-  position:fixed; bottom:1.5rem; right:1.5rem;
-  background:#0a66c2; color:#fff; padding:.75rem 1.25rem;
-  border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,.15);
-  opacity:0; transform:translateY(20px); pointer-events:none;
-  transition:opacity .3s, transform .3s;
-}
-#toast.show{opacity:1; transform:translateY(0);}
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;pointer-events:none;
+  background:var(--black);color:var(--white);padding:1rem 1.5rem;
+  border-radius:1.2rem;box-shadow:var(--shadow-lg);
+  opacity:0;transform:translateY(24px);transition:opacity .35s,transform .35s}
+#toast.show{opacity:1;transform:translateY(0)}
 
-/* ===== Social icon buttons (#10) ===== */
-.socials{
-  margin-top:2rem; text-align:center; display:flex;
-  justify-content:center; gap:1.25rem;
+/* ------------------------------------------------------------------
+   9.  KEYFRAMES (if card halo or wave used)
+------------------------------------------------------------------- */
+@keyframes rotate{to{transform:rotate(1turn)}}
+/* === Skill list polish === */
+.skill-list{
+  list-style:none;                /* remove bullets */
+  padding:0;margin:0;
+  display:grid;
+  gap:1.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  justify-items:center;           /* center each card */
 }
-.socials a{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:44px; height:44px; border-radius:50%; background:#fff;
-  box-shadow:0 2px 6px rgba(0,0,0,.1); color:#0a66c2;
-  font-size:1.25rem; text-decoration:none;
+
+.skill-list li{
+  display:flex;align-items:center;gap:.65rem;
+  font-weight:600;font-size:1rem;
+  border:2px solid var(--black);
+  border-radius:1.4rem;
+  padding:.9rem 1.1rem;
+  transition:transform .25s,box-shadow .25s;
 }
-.socials a:hover{background:#0a66c2; color:#fff;}
+.skill-list li:hover{
+  transform:translateY(-4px);
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+.skill-list i{
+  color:var(--brand);             /* make icons red */
+  font-size:1.25rem;
+}
+
+/* === About portrait === */
+.about-img{
+  width:200px;         /* nice, not-too-big size on desktop  */
+  height:200px;        /* keep it perfectly square           */
+  border-radius:50%;   /* makes the photo a circle           */
+  object-fit:cover;    /* crop to fill the circle nicely     */
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  justify-self:center; /* still centers inside the grid      */
+}
+
+/* shrink a bit more on narrow phones */
+@media(max-width:480px){
+  .about-img{width:160px;height:160px}
+}
