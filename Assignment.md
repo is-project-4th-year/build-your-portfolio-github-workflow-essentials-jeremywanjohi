@@ -34,28 +34,24 @@ Include screenshots that demonstrate how you used GitHub to manage your project.
 ### A. Milestones and Issues
 
 - Screenshot showing your milestone(s) and the issues linked to it.
-- ![image](https://github.com/user-attachments/assets/f2730d42-25ca-4554-a595-0fa206c31342)
 ![image](https://github.com/user-attachments/assets/f2730d42-25ca-4554-a595-0fa206c31342)
 
 
 ### B. Project Board
 
 - Screenshot of your GitHub Project Board with issues organized into columns (e.g., To Do, In Progress, Done).
-- ![Screenshot 2025-06-26 133323](https://github.com/user-attachments/assets/506ad4a4-02c3-41e5-b523-7af3b95783d8)
 ![Screenshot 2025-06-26 133323](https://github.com/user-attachments/assets/506ad4a4-02c3-41e5-b523-7af3b95783d8)
 
 
 ### C. Branching
 
 - Screenshot showing your branch list with meaningful naming.
-- ![image](https://github.com/user-attachments/assets/83330a8e-8ea3-402a-8bcd-8eda53bee485)
 ![image](https://github.com/user-attachments/assets/83330a8e-8ea3-402a-8bcd-8eda53bee485)
 
 
 ### D. Pull Requests
 
 - Screenshot of a pull request that’s either open or merged and linked to a related issue.
-- ![image](https://github.com/user-attachments/assets/659e6ca1-d247-460b-93d2-0dc34b519dba)
 ![image](https://github.com/user-attachments/assets/659e6ca1-d247-460b-93d2-0dc34b519dba)
 
 
