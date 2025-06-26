@@ -2,14 +2,14 @@
 
 ## 1. Student Details
 
-- **Full Name**:
-- **GitHub Username**:
-- **Email**:
+- **Full Name**: Jeremy Wanjohi
+- **GitHub Username**: jeremywanjohi
+- **Email**:jeremy.wanjohi@strathmore.edu
 
 ## 2. Deployed Portfolio Link
 
 - **GitHub Pages URL**:  
-  _(Provide the live link to your deployed portfolio website)_
+  https://is-project-4th-year.github.io/build-your-portfolio-github-workflow-essentials-jeremywanjohi/
 
 ## 3. Learnings from the Git Crash Program
 
