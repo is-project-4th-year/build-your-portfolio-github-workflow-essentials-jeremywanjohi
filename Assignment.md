@@ -1,4 +1,4 @@
-![Screenshot 2025-06-26 142020](https://github.com/user-attachments/assets/29dacae9-db19-4b3e-b6c0-8dec8b61eb2e)# Personal Portfolio Documentation
+# Personal Portfolio Documentation
 
 ## 1. Student Details
 
