@@ -1,157 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jeremy Wanjohi • Portfolio</title>
 
-  <link rel="stylesheet" href="styles.css" />
-
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- Main theme -->
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header class="nav">
+  <!-- ░░ NAV ░░ -->
+  <header class="nav glass">
     <a href="#home" class="logo">Jeremy<span>.</span></a>
-
-    <!-- hamburger button -->
     <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-
-    <!-- collapsible menu -->
     <nav id="nav-menu">
       <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
-  <!-- Toast container (#9) -->
-    <div id="toast" role="status" aria-live="polite"></div>
 
-
-
-  <!-- HERO (#2) -->
-   <!-- hero background -->
- <section id="home" class="hero" style="background:url('assets/hero.jpg') center/cover;">
-
-  <section id="home" class="hero">
-    <h1>Hi, I’m Jeremy 👋</h1>
-    <p>CS student • Front-end dev • Tech enthusiast</p>
-    <a href="#projects" class="cta">View My Work</a>
+  <!-- ░░ HERO ░░ -->
+  <section id="home" class="hero full">
+    <div class="hero__inner">
+      <h1>Hi, I’m <span class="text-brand">Jeremy</span> 👋</h1>
+      <p>Front-end developer & data tinkerer building greener, smarter apps.</p>
+      <a href="#projects" class="btn btn--wave">See my work</a>
+    </div>
   </section>
 
-  <!-- ABOUT (#5) -->
-<section id="about" class="about">
-  <h2>Who Am I ?</h2>
-  <p>
-    I’m Jeremy Wanjohi, a fourth-year CS student at Strathmore University
-    passionate about front-end development and data science.
-    When I’m not coding , you’ll find me crunching
-    football stats for Liverpool FC. 🚀
-  </p>
-</section>
+  <!-- ░░ ABOUT ░░ -->
+  <section id="about" class="section-card">
+    <h2>About&nbsp;Me</h2>
+    <div class="about">
+      <img src="assets/potrait.png" alt="Portrait of Jeremy Wanjohi" class="about-img">
+      <p>
+        I’m a final-year computer-science student at Strathmore University.  
+        I like turning ideas into clean, fast user interfaces and making data easy
+        to understand. Away from the keyboard I’m usually traveling, trying new
+        things, or digging into Premier League stats for fun.
+      </p>
 
-
-  <!-- placeholders, needed later -->
-  <!-- PROJECTS (#6) -->
-<section id="projects" class="projects">
-  <h2>Projects</h2>
-
-  <div class="card-grid">
-    <article class="card">
-      <h3>EcoLocator 🌱</h3>
-      <p>Helps Nairobi residents find nearby recycling centres and earn
-         rewards for eco-friendly habits.</p>
-    </article>
-
-    <article class="card">
-      <h3>ImpactNow 🤝</h3>
-      <p>Mobile app that matches students with volunteering
-         opportunities, making community service easy.</p>
-    </article>
-
-    <article class="card">
-      <h3>Smart Traffic AI 🚦</h3>
-      <p>Deep-RL model that reduced simulated junction wait times
-         in Nairobi by 70 %.</p>
-    </article>
-  </div>
-</section>
-    <!-- CONTACT (#8) -->
-<section id="contact" class="contact">
-  <h2>Get in touch</h2>
-
-  <form id="contact-form">
-    <label>
-      Name
-      <input type="text" name="user_name" required />
-    </label>
-
-    <label>
-      Email
-      <input type="email" name="user_email" required />
-    </label>
-
-    <label>
-      Message
-      <textarea name="message" rows="4" required></textarea>
-    </label>
-
-    <button type="submit" class="cta">Send Message</button>
-  </form>
-  <!-- SOCIAL ICONS (#10) -->
-    <div class="socials">
-    <a href="https://github.com/jeremywanjohi"  aria-label="GitHub">
-        <i class="fab fa-github"></i>
-    </a>
-    <a href="https://linkedin.com/in/jeremy-wanjohi" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="mailto:jeremy@example.com" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-    </a>
     </div>
+  </section>
 
-</section>
-<script>
-  /* showToast used by EmailJS handler too */
-  function showToast(msg){
-    const t=document.getElementById("toast");
-    t.textContent=msg; t.classList.add("show");
-    setTimeout(()=>t.classList.remove("show"),3000);
-  }
+  <!-- ░░ SKILLS ░░ -->
+  <section id="skills" class="section-card">
+    <h2>Core&nbsp;Skills</h2>
+    <ul class="skill-list">
+      <li><i class="fab fa-js-square"></i><span>JavaScript / TypeScript</span></li>
+      <li><i class="fab fa-react"></i><span>React & React Native</span></li>
+      <li><i class="fas fa-database"></i><span>MySQL / PostgreSQL</span></li>
+      <li><i class="fas fa-chart-line"></i><span>Data Viz (Power BI)</span></li>
+      <li><i class="fas fa-robot"></i><span>ML / Python )</span></li>
+    </ul>
+  </section>
 
-  /* extra HTML5 validation feedback */
-  document.getElementById("contact-form")
-    .addEventListener("invalid", e=>{
-      e.preventDefault();
-      showToast("Please fill all fields correctly 🙏");
-    }, true);
-</script>
+  <!-- ░░ PROJECTS ░░ -->
+  <section id="projects" class="section-card">
+    <h2>Featured&nbsp;Projects</h2>
+    <div class="card-grid">
+      <article class="card"><h3>EcoLocator 🌱</h3>
+        <p>Helps Nairobi residents find nearby recycling centres and earn rewards for eco-friendly habits.</p>
+      </article>
+      <article class="card"><h3>ImpactNow 🤝</h3>
+        <p>Mobile app that matches students with volunteering gigs—community service in one tap.</p>
+      </article>
+      <article class="card"><h3>Smart Traffic AI 🚦</h3>
+        <p>Deep-RL model that slashed simulated junction wait times by 70 %.</p>
+      </article>
+    </div>
+  </section>
 
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  emailjs.init("YOUR_PUBLIC_KEY");   // 🔑  replace with your EmailJS public key
+  <!-- ░░ CONTACT ░░ -->
+  <section id="contact" class="section-card">
+    <h2>Let’s Talk</h2>
+    <form id="contact-form">
+      <label>Name <input type="text" name="user_name" required></label>
+      <label>Email <input type="email" name="user_email" required></label>
+      <label>Message <textarea name="message" rows="4" required></textarea></label>
+      <button type="submit" class="btn">Send</button>
+    </form>
 
-  document.getElementById("contact-form")
-    .addEventListener("submit", function(e) {
-      e.preventDefault();
-      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-        .then(() => showToast("Message sent!"),   // showToast in #9
-              () => showToast("Oops, try again 🙁"));
-      this.reset();
-    });
-</script>
+    <div class="socials">
+      <a href="https://github.com/jeremywanjohi" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/jeremy-wanjohi" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:jeremy@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
 
+  <footer>© 2025 Jeremy Wanjohi</footer>
 
+  <!-- Toast -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <!-- ░░ INLINE JS ░░ -->
   <script>
-  const btn=document.getElementById('nav-toggle');
-  const menu=document.getElementById('nav-menu');
-  btn.addEventListener('click',()=>{
-    const open=btn.getAttribute('aria-expanded')==='true';
-    btn.setAttribute('aria-expanded',!open);
-    menu.classList.toggle('open');
-  });
-</script>
+    /* Nav toggle */
+    const navBtn  = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navBtn.addEventListener('click', () => {
+      const open = navBtn.getAttribute('aria-expanded') === 'true';
+      navBtn.setAttribute('aria-expanded', !open);
+      navMenu.classList.toggle('open');
+    });
+
+    /* Toast helper */
+    function showToast(msg){
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    /* Form validation */
+    document.getElementById('contact-form')
+      .addEventListener('invalid', e => {
+        e.preventDefault();
+        showToast('Please fill all fields correctly 🙏');
+      }, true);
+
+    /* EmailJS (replace keys) */
+    emailjs.init('YOUR_PUBLIC_KEY');
+    document.getElementById('contact-form')
+      .addEventListener('submit', function (e) {
+        e.preventDefault();
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+          .then(() => showToast('Message sent!'),
+                () => showToast('Oops, try again 🙁'));
+        this.reset();
+      });
+  </script>
 </body>
 </html>
