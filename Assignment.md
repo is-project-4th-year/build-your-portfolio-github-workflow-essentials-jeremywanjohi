@@ -51,7 +51,8 @@ List at least **four key concepts or skills** you learned during the Git crash c
 
 ### E. Merge Conflict Resolution
 
-- Screenshots of a merge conflict and the pull request status after successfully resolving the merge conflict
+- Screenshot of a merge conflict
 ![Screenshot 2025-06-26 142020](https://github.com/user-attachments/assets/3a7f018a-ac27-46ee-98db-9f7b80d22759)
 
+-Screenshot of a pull request status after successfully resolving the merge conflict
 ![Screenshot 2025-06-26 142101](https://github.com/user-attachments/assets/87b486f2-4c6f-4c26-a01d-3d1a46cea7d4)
