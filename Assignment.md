@@ -3,6 +3,7 @@
 ## 1. Student Details
 
 - **Full Name**: Jeremy Wanjohi
+- **Student ID**: 150000
 - **GitHub Username**: jeremywanjohi
 - **Email**:jeremy.wanjohi@strathmore.edu
 
